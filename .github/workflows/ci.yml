@@ -36,7 +36,9 @@ jobs:
 
       - name: Verify on Unix
         if: runner.os != 'Windows'
-        run: ./mvnw -B verify
+        run: |
+          chmod +x mvnw
+          ./mvnw -B verify
 
       - name: Upload JAR artifact
         if: success()
